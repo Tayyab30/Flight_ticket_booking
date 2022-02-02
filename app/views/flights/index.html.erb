@@ -1,0 +1,78 @@
+
+<div class="container ">
+<h1>Wellcom, <%= current_user.email %></h1>
+<h2>Your role is [<%= current_user.role %>]</h2>
+<div class="row mt-4">
+  <div class="col text-center  text-light">
+  <div class="card bg-dark text-white " >
+  <%= image_tag 'flighttextless.jpg',alt: 'icon' %>
+  <div class="card-img-overlay  d-flex justify-content-center flex-column">
+  <div class="bg-dark p-5">  
+  <% if current_user.admin?%> 
+    <h1 class="card-title  text-light"><%= link_to "Create New Flights", new_flight_path , class: "btn btn-primary"%></h1>
+  
+    <% else %>
+    <h1 class="card-title  text-light">Book Your flights</h1>
+
+  <% end %>
+
+    <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text">Last updated 3 mins ago</p>
+    </div>
+  </div>
+</div>
+  <h1></h1>
+  </div>
+
+  <div class="">
+        <h3 class="mt-5">Searching flights by Departure Airport</h3>
+        <%= form_tag flights_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", class:"btn btn-primary" %>
+        <% end %>
+  </div>
+<br><br>
+
+<table class="table table-hover mt-5 ">
+<thead>
+        <tr>
+        <th>Departure Airport</th>
+            <th>Arrival Airport</th>
+            <th>Duration</th>
+            <th>Booked</th>
+            <% if current_user.admin? %>
+            <th>Passengers Detail</th>
+            <% end %>
+            <th>Ticket Booking</th>
+
+
+
+            
+
+            
+            </tr>
+            </thead>
+    <tbody>
+    <% @flights.each do |f| %>
+        <tr>
+            <td><%= f.departure_code %></td>
+            <td><%= f.arrival_code %></td>
+            <td><%= f.duration %></td>
+            <td><%= f.ticket_detail.where(status: "Booked").count %></td>
+            <% if current_user.admin? %>
+            <td><%= link_to "Passengers Details", passenger_dtl_passengers_path(f_id: f.id)%></td>
+            <% end %>
+            <td><%= link_to "Booking", new_passenger_path(f_id: f.id)%></td>
+            
+            </tr>
+            <% end %>
+            </tbody>
+            </table>
+            </div>
+            </div>
+            
+            
+            
+            
+            <%#= link_to "Advance Search", new_search_path %><br><br><br>
+            <%#= f.ticket_detail.where.not(status: "Booked").count %>

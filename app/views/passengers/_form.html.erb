@@ -1,0 +1,48 @@
+<div class="container">
+<%= form_with model: passenger do |form| %>
+    <div>
+        <%= form.label :first_name %><br>
+        <%= form.text_field :first_name %><br>
+        <% passenger.errors.full_messages_for(:first_name).each do  |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+    <div>
+      <%= hidden_field_tag('f_id',params[:f_id]) %>
+    </div>
+    <div>
+        <%= form.label :last_name %><br>
+        <%= form.text_field :last_name %><br>
+        <% passenger.errors.full_messages_for(:last_name).each do  |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+    <div>
+        <%= form.label :email %><br>
+        <%= form.text_field :email %><br>
+        <% passenger.errors.full_messages_for(:email).each do  |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+    <div>
+        <%= form.label :phone_number %><br>
+        <%= form.text_field :phone_number %><br>
+        <% passenger.errors.full_messages_for(:phone_number).each do  |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+    <div>
+        <%= form.label :address %><br>
+        <%= form.text_field :address %><br>
+        <% passenger.errors.full_messages_for(:address).each do  |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+<br>
+
+    <div>
+        <%= form.submit "Create Passenger" , class:"btn btn-success mt-2" %>
+    </div>
+<% end %>
+
+</div>

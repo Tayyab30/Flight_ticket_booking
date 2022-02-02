@@ -1,0 +1,27 @@
+<%#= form_tag(search_path, :method => "get") do  %>
+
+    <%#=search_field_tag :search, params[:search], placeholder: "Type", %>
+        <div>
+            <%#= button_tag "Search for Flights" %>
+        </div>    
+    
+    
+    
+    
+    
+    <%#= form.label :departure_code, "From:" %>
+        <%#= form.select :departure_code, [["Pakistan", "pak"], ["India", "ind"], ["China", "chin"]], selected: "pak" %><br>
+        
+        <%#= form.label :arrival_code, "To:" %>
+        <%#= form.select :arrival_code, [["Pakistan", "pak"], ["India", "ind"], ["China", "chin"]], selected: "ind" %><br>
+       
+        
+        <%#= form.label :num_of_passenger, "Number of Passenger:" %>
+        <%#= form.select :num_of_passenger, [1,2,3,4] %><br>
+        
+        <%#= form.label :num_of, "Number of Passenger:" %>
+        <%#= form.date_field :start_time %>
+        
+        <%#= form.submit "Search" %>
+<%# end %>
+        

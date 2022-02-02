@@ -1,0 +1,21 @@
+<h1> Advance Search</h1>
+<%= form_for model: @search,  do |s| %>
+    <div>
+        <%= s.label :departure_code %>
+        <%= s.text_field :departure_code %>
+    </div>
+
+    <div>
+        <%= s.label :arrival_code %>
+        <%= s.text_field :arrival_code %>
+    </div>
+    <div>
+        <%= s.label :start_date %>
+        <%= s.text_field :start_date %>
+    </div>
+
+    <div>
+        <%= s.label :passenger %>
+        <%= s.text_field :passenger %>
+    </div>
+<% end %>

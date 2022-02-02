@@ -1,0 +1,51 @@
+<%= form_with model: flight do |form| %>
+    <div>
+        <%= form.label :departure_code %><br>
+        <%= form.text_field :departure_code %><br>
+        <% flight.errors.full_messages_for(:departure_code).each do  |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :arrival_code %><br>
+        <%= form.text_field :arrival_code %><br>
+        <% flight.errors.full_messages_for(:arrival_code).each do  |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :total_seats %><br>
+        <%= form.text_field :total_seats %><br>
+        <% flight.errors.full_messages_for(:total_seats).each do  |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+    <div>
+        <%= form.label :available_seats %><br>
+        <%= form.text_field :available_seats %><br>
+        <% flight.errors.full_messages_for(:available_seats).each do  |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :duration %><br>
+        <%= form.text_field :duration %><br>
+        <% flight.errors.full_messages_for(:duration).each do  |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :airport_id %><br>
+        <%= form.select :airport_id , options_for_select(airport_id) %><br>
+    </div>
+
+<br>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
